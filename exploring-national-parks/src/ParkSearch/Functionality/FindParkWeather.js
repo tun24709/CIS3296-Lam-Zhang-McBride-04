@@ -3,7 +3,7 @@ export const FindParkWeather = async (latitude, longitude) => {
         const apiKey = process.env.REACT_APP_TOKEN; //gets API key from .env
         //get latitude and longitude from parkCode
 
-        const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly&appid=ef16cbd8cd23122b01c5a72c9e22fb79`;
+        const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly&appid=ef16cbd8cd23122b01c5a72c9e22fb79`;
         const response = await fetch(url);
         console.log({apiKey});
         if(!response.ok){
