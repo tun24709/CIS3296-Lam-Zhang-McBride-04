@@ -11,6 +11,7 @@ import React, { useState, useEffect } from 'react';
 import { ParkInfo } from '../Functionality/ParkInfo'; // Importing the functionality
 import '../../Style/parkInfo.css';
 import ParkVideos from './ParkVideos';
+import Weather from "../../HomePage/Components/Weather";
 
 function ParkInfoComponent() {
     const [parkJSON, setParks] = useState([]);
@@ -45,6 +46,7 @@ function ParkInfoComponent() {
         };
 
         fetchData();
+        console.log(parkJSON);
     }, []);
 
     if(parkJSON.length>1){ //list all the parks
@@ -139,8 +141,7 @@ function ParkInfoComponent() {
                                 <div className='activity'><p key={activity.id}>{activity.name}</p></div></>))}
                             </div>
 
-                            
-                            
+                            <Weather latitude={parkJSON[0].latitude} longitude={parkJSON[0].longitude}> </Weather>
                         </div>
                         </>
                     ))}

@@ -20,6 +20,8 @@ export const FetchForecast = async (parkCode) => {
     
         const url = `https://api.weather.gov/points/${parkCode.latitude},${parkCode.longitude}`;
         const response = await fetch(url);
+        console.log(typeof parkCode);
+
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
