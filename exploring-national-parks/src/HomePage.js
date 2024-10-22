@@ -7,6 +7,7 @@
 import React from 'react'
 import Welcome from './HomePage/Components/Welcome'
 import Buttons from './HomePage/Components/Buttons'
+import Weather from './HomePage/Components/Weather';
 import yosemite from './HomePage/Assets/yosemite.jpg';
 import './Style/homepage.css'
 import HighlightGallery from './HomePage/Components/HighlightGallery';
@@ -18,6 +19,7 @@ const HomePage = () => {
         <Welcome/>
         <HighlightGallery/>
         <Buttons/>
+        <Weather/>
     </div>
   )
 }
