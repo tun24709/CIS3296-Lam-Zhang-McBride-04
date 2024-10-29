@@ -20,7 +20,11 @@ const Buttons = () => {
             <div className = "button-container">
                 <p>Learn More About Parks</p> 
                 <Link className="homepage-button" to='/ParkSearch'><button className="homepage-button">Park Search</button></Link>                    
-            </div> 
+            </div>
+            <div className = "button-container">
+                <p>Random Park!</p>
+                <Link className="homepage-button" to='/ParkSearch'><button className="homepage-button">I'm feeling lucky!</button></Link>
+            </div>
             <div className = "button-container">
                 <p>Plan A Trip To A National Park</p>
                 <Link className="homepage-button" to='/ParkPlan'><button className="homepage-button">Plan a Trip</button></Link>
