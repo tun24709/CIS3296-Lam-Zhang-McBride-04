@@ -26,6 +26,7 @@ const Buttons = () => {
         const randomPark = parks.data[Math.floor(Math.random()*parks.data.length)];
 
         console.log(randomPark);
+        window.location.href = 'ParkInfo?parkCode=' + randomPark.parkCode;
       } catch (error) {
         console.log('Error Fetching parks: ', error.message);
       }
