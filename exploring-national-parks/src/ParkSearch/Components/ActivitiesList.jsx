@@ -71,7 +71,24 @@ function ActivitiesList() {
     console.log("Length");
     console.log(numOfParks);
     //console.log("parks filtered above");
-    
+
+    async function randPark() {
+          try {
+            const url = `https://developer.nps.gov/api/v1/parks?api_key=Y7kFnm6SP5SMQhkTvwUSgyjge9buj4DbjrkuV2S0&limit=471`;
+            const response = await fetch(url);
+            if (!response.ok) {
+              throw new Error('Unable to fetch parks');
+            }
+            const parks = await response.json();
+            const randomPark = parks.data[Math.floor(Math.random()*parks.data.length)];
+
+            console.log(randomPark);
+            window.location.href = 'ParkInfo?parkCode=' + randomPark.parkCode;
+          } catch (error) {
+            console.log('Error Fetching parks: ', error.message);
+          }
+        }
+
     return (
 
         <div className='activities-list'>
@@ -105,7 +122,7 @@ function ActivitiesList() {
             <div className="search-button-wrapper" >
                 <div className="search-button-grid" >
                     <Link className="search-button" to="/"><button className="search-button">Return To Home</button></Link>
-                    <Link className="search-button" to="/"><button className="search-button">I'm feeling lucky!</button></Link>
+                    <button className="search-button" onClick={randPark}>I'm feeling lucky!</button>
                     <Link className="search-button" to="/"><button className="search-button" >Plan A Trip</button></Link>
                 </div>
             </div>
