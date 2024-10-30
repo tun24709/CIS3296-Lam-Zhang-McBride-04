@@ -7,29 +7,13 @@
  */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { randPark } from '../../GlobalComponents/ParkUtils.jsx'
 
 const Buttons = () => {
     function click () {
         console.log("clicked")
         // invoke a react link to the park search page
         window.location.href = "ParkSearch"
-    }
-
-    async function randPark() {
-      try {
-        const url = `https://developer.nps.gov/api/v1/parks?api_key=Y7kFnm6SP5SMQhkTvwUSgyjge9buj4DbjrkuV2S0&limit=471`;
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Unable to fetch parks');
-        }
-        const parks = await response.json();
-        const randomPark = parks.data[Math.floor(Math.random()*parks.data.length)];
-
-        console.log(randomPark);
-        window.location.href = 'ParkInfo?parkCode=' + randomPark.parkCode;
-      } catch (error) {
-        console.log('Error Fetching parks: ', error.message);
-      }
     }
 
     return (
@@ -40,7 +24,7 @@ const Buttons = () => {
             </div>
             <div className = "button-container">
                 <p>Random Park!</p>
-                <button className="homepage-button" onClick={randPark}>I'm feeling lucky!</button>
+                <button className="homepage-button" id="randButton" onClick={randPark}>I'm feeling lucky!</button>
             </div>
             <div className = "button-container">
                 <p>Plan A Trip To A National Park</p>
