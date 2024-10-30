@@ -20,6 +20,9 @@ import {StateOptions} from '../Functionality/StateOptions';
  * @memberof ParkSearch
  * @returns {JSX.Element} Park search body component
  */
+
+import { randPark } from '../../GlobalComponents/ParkUtils.jsx'
+
 function ActivitiesList() {
 
     const [posts, setPosts] = useState([]);
@@ -71,7 +74,7 @@ function ActivitiesList() {
     console.log("Length");
     console.log(numOfParks);
     //console.log("parks filtered above");
-    
+
     return (
 
         <div className='activities-list'>
@@ -105,6 +108,7 @@ function ActivitiesList() {
             <div className="search-button-wrapper" >
                 <div className="search-button-grid" >
                     <Link className="search-button" to="/"><button className="search-button">Return To Home</button></Link>
+                    <button className="search-button" id="randButton" onClick={randPark}>I'm feeling lucky!</button>
                     <Link className="search-button" to="/"><button className="search-button" >Plan A Trip</button></Link>
                 </div>
             </div>
